@@ -1,4 +1,6 @@
 # IDE stuff
 .idea
 
+# npm-related stuff
+node_modules
 packages/**/dist
