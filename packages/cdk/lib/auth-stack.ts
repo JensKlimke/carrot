@@ -1,8 +1,8 @@
-import * as cdk from 'aws-cdk-lib';                 // Import AWS CDK core library
-import * as cognito from 'aws-cdk-lib/aws-cognito'; // Import AWS Cognito module
+import * as cdk from 'aws-cdk-lib';
+import * as cognito from 'aws-cdk-lib/aws-cognito';
 import { Construct } from 'constructs';
 import path from "node:path";
-import {createStaticWebsite} from "./StaticWebsite";             // Import Construct class to define CDK constructs
+import {createStaticWebsite} from "./StaticWebsite";
 
 export class AuthStack extends cdk.Stack {
 
