@@ -12,7 +12,7 @@ export class AuthStack extends cdk.Stack {
     // Create a Cognito User Pool
     const userPool = new cognito.UserPool(this, 'CarrotUserPool', {
       userPoolName: 'CarrotUserPool',
-      selfSignUpEnabled: true,        // Allow users to sign up themselves
+      selfSignUpEnabled: false,       // Allow users to sign up themselves
       signInAliases: { email: true }, // Users can sign in using their email
       autoVerify: { email: true },    // Automatically verify emails
 
