@@ -1,0 +1,66 @@
+{
+  "Welcome to React": "Willkommen im Carrot UI",
+  "copyright": {
+    "short": "© JK",
+    "normal": "© 2025 Entwickelt mit ❤️ von Jens Klimke"
+  },
+  "item": {
+    "new_button": "Neu",
+    "export_button": "Export",
+    "export_copied": "kopiert",
+    "import_button": "Import",
+    "import_failed": "Import abgebrochen!",
+    "import_confirm": "Möchten Sie wirklich {{n}} {{item_type}} importieren?",
+    "delete_all_button": "Alle löschen",
+    "delete_all_confirm": "Möchten Sie wirklich alle {{item_type}} löschen?",
+    "created_notification": "{{item_type, capitalize}} erstellt!",
+    "updated_notification": "{{item_type, capitalize}} geändert!",
+    "deleted_notification": "{{item_type, capitalize}} gelöscht!",
+    "creation_failed_notification": "Konnte {{item_type}} nicht erstellen!",
+    "update_failed_notification": "Konnte {{item_type}} nicht ändern!",
+    "deletion_failed_notification": "Konnte {{item_type}} nicht löschen!",
+    "save_button": "Speichern",
+    "cancel_button": "Abbrechen",
+    "delete_button": "Löschen",
+    "create_button": "Neuer {{item_type}}",
+    "edit_button": "{{item_type, capitalize}} bearbeiten",
+    "number_of_items": "{{count}} {{item_type}} in Summe."
+  },
+  "item_types": {
+    "contract_one": "Vertrag",
+    "contract_other": "Verträge"
+  },
+  "nav": {
+    "home": "Übersicht",
+    "contracts": "Verträge"
+  },
+  "format": {
+    "eur": "{{value, currency, EUR}}",
+    "months": ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"]
+  },
+  "pages": {
+    "contracts": {
+      "contract_amount": "Betrag",
+      "annual_amount": "Jährliche Kosten",
+      "description": "Beschreibung",
+      "next_payment": "Nächste Zahlung",
+      "input_labels": {
+        "name": "Name",
+        "name_required": "Name (erforderlich)",
+        "amount": "Betrag",
+        "amount_invalid": "Ungültiger Betrag",
+        "creditor": "Gläubiger",
+        "shared": "geteilt"
+      }
+    }
+  },
+  "words": {
+    "month_one": "Monat",
+    "month_other": "Monate",
+    "amount_one": "Betrag",
+    "amount_other": "Beträge",
+    "information_one": "Information",
+    "information_other": "Informationen",
+    "metrics": "Metriken"
+  }
+}

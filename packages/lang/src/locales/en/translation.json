@@ -1,0 +1,67 @@
+{
+  "Welcome to React": "Welcome to Carrot UI",
+  "copyright": {
+    "short": "© JK",
+    "normal": "© 2025 Made with ❤️ by Jens Klimke"
+  },
+  "item": {
+    "new_button": "New",
+    "export_button": "Export",
+    "export_copied": "copied",
+    "import_button": "Import",
+    "import_failed": "Import failed!",
+    "import_confirm": "Do you really want to import {{n}} {{item_type}}?",
+    "delete_confirm": "Are you sure you want to delete this {{item_type}} ({{name}})?",
+    "delete_all_button": "Delete all",
+    "delete_all_confirm": "Do you really want to delete all {{item_type}}?",
+    "created_notification": "{{item_type, capitalize}} created!",
+    "updated_notification": "{{item_type, capitalize}} updated!",
+    "deleted_notification": "{{item_type, capitalize}} deleted!",
+    "creation_failed_notification": "{{item_type, capitalize}} could not be created!",
+    "update_failed_notification": "{{item_type, capitalize}} could not be updated!",
+    "deletion_failed_notification": "{{item_type, capitalize}} could not be deleted!",
+    "save_button": "Save",
+    "cancel_button": "Cancel",
+    "delete_button": "Delete",
+    "create_button": "New {{item_type}}",
+    "edit_button": "Edit {{item_type}}",
+    "number_of_items": "{{count}} {{item_type}} in total."
+  },
+  "item_types": {
+    "contract_one": "contract",
+    "contract_other": "contracts"
+  },
+  "nav": {
+    "home": "Dashboard",
+    "contracts": "Contracts"
+  },
+  "format": {
+    "eur": "{{value, currency, EUR}}",
+    "months": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+  },
+  "pages": {
+    "contracts": {
+      "contract_amount": "Contract Amount",
+      "annual_amount": "Annual Amount",
+      "description": "Description",
+      "next_payment": "Next Payment",
+      "input_labels": {
+        "name": "Name",
+        "name_required": "Name (required)",
+        "amount": "Amount",
+        "amount_invalid": "Invalid amount",
+        "creditor": "Creditor",
+        "shared": "shared"
+      }
+    }
+  },
+  "words": {
+    "month_one": "Month",
+    "month_other": "Months",
+    "amount_one": "Amount",
+    "amount_other": "Amounts",
+    "information_one": "Information",
+    "information_other": "Information",
+    "metrics": "Metrics"
+  }
+}

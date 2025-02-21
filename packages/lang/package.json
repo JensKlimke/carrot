@@ -1,0 +1,8 @@
+{
+  "name": "@carrot/lang",
+  "private": true,
+  "version": "0.1.0",
+  "author": "Jens Klimke",
+  "license": "MIT",
+  "description": "The language files."
+}
