@@ -18,3 +18,10 @@
     │   ├── frontend (React - typescript)
     │   ├── backend (Express - typescript)
     │   ├── cdk (AWS Infrastructure - typescript)
+
+
+## TODOs
+
+- [ ] Auth-app hosting via cdk
+- [ ] Language support for auth-app
+- [ ] Self-register and data change auth-app

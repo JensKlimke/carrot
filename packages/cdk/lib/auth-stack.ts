@@ -1,11 +1,10 @@
 import * as cdk from 'aws-cdk-lib';                 // Import AWS CDK core library
 import * as cognito from 'aws-cdk-lib/aws-cognito'; // Import AWS Cognito module
-import { Construct } from 'constructs';             // Import Construct class to define CDK constructs
+import { Construct } from 'constructs';
+import path from "node:path";
+import {createStaticWebsite} from "./StaticWebsite";             // Import Construct class to define CDK constructs
 
 export class AuthStack extends cdk.Stack {
-
-  public readonly userPoolId: string;
-  public readonly userPoolClientId: string;
 
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
@@ -42,11 +41,27 @@ export class AuthStack extends cdk.Stack {
       }
     });
 
-    this.userPoolId = userPool.userPoolId;
-    this.userPoolClientId = userPoolClient.userPoolClientId;
+    // Create static website (WhoisFrontend)
+    const { distribution : whoIsAppContribution } = createStaticWebsite({
+      key: 'AuthApp',
+      distPath: path.resolve(`../auth-app/build`),
+      stack: this
+    });
 
-    new cdk.CfnOutput(this, 'UserPoolId', { value: this.userPoolId });
-    new cdk.CfnOutput(this, 'UserPoolClientId', { value: this.userPoolClientId });
+    // Outputs
+    new cdk.CfnOutput(this, 'UserPoolId', {
+      value: userPool.userPoolId,
+      description: 'The id of the user pool',
+    });
+    new cdk.CfnOutput(this, 'UserPoolClientId', {
+      value: userPoolClient.userPoolClientId,
+      description: 'The id of the user pool client',
+    });
+    new cdk.CfnOutput(this, 'WhoIsAppURL', {
+      value: `https://${whoIsAppContribution.domainName}`,
+      description: 'The domain to reach the auth app'
+    });
 
   }
+
 }
