@@ -19,9 +19,8 @@ export class AuthStack extends cdk.Stack {
 
       // Configure email verification using a link (instead of a code)
       userVerification: {
-        emailSubject: 'Verify your email for our app!',
-        emailBody: 'Click the link below to verify your email: {##Verify Email##}',
-        emailStyle: cognito.VerificationEmailStyle.LINK // Uses a verification link instead of a code
+        emailSubject: 'Complete your registration!',
+        emailBody: 'Click the following link: {####}',
       },
 
       // Define required user attributes

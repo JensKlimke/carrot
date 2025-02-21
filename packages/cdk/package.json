@@ -1,13 +1,13 @@
 {
-  "name": "cdk",
-  "version": "1.0.0",
+  "name": "@carrot/cdk",
+  "version": "0.1.0",
   "description": "Defines and implements the AWS infrastructure (CDK stacks)",
   "private": true,
   "author": "Jens Klimke",
   "license": "MIT",
   "scripts": {
     "build": "tsc",
-    "deploy": "cdk deploy --outputs-file dist/cdk-output.json",
+    "deploy": "cdk deploy --outputs-file dist/cdk-outputs.json",
     "destroy": "cdk destroy --force",
     "synth": "cdk synth"
   },
@@ -18,7 +18,6 @@
   "devDependencies": {
     "@types/node": "^22.13.4",
     "aws-sdk": "^2.1692.0",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.7.3"
+    "ts-node": "^10.9.2"
   }
 }
