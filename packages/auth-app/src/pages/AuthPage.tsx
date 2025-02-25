@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {signIn, confirmSignIn} from '@aws-amplify/auth';
-import {useCallback, useState} from "react";
+import {signIn, confirmSignIn, fetchAuthSession} from '@aws-amplify/auth';
+import {useCallback, useEffect, useState} from "react";
 import {useSession} from "@toolpad/core";
 import AccountPage from "./AccountPage";
 import {UserSession} from "../contexts/SessionContext";
@@ -15,6 +15,24 @@ export default function AuthPage() {
   const session = useSession<UserSession>()
   const [confirmWithPassword, setConfirmWithPassword] = useState(false);
 
+  useEffect(() => {
+    if (session && session.user) {
+      // Reset confirm with password state
+      setConfirmWithPassword(false);
+      // Check if redirect url is given
+      const redirect = new URLSearchParams(window.location.search).get('redirect');
+      if (redirect) {
+        fetchAuthSession().then(res=>{
+          // Build url
+          const url = new URL(redirect);
+          url.hash = `#access_token=${res.tokens?.accessToken}`;
+          // Redirect to origin
+          window.location.href = url.toString();
+        })
+      }
+    }
+  }, [session])
+
   const signInCallback = useCallback<(formData: FormData) => Promise<Error | undefined>>(async (formData: FormData) => {
     // Get credentials
     const email = formData.get('email') as string;
@@ -24,14 +42,20 @@ export default function AuthPage() {
       const {isSignedIn, nextStep} = await signIn({username: email, password});
       session && session.reloadSession();
       // Switch for next step
-      console.log(isSignedIn, nextStep)
-      if (nextStep.signInStep === 'DONE') {
-        console.info('Successfully signed in.')
+      if (isSignedIn) {
         return Promise.resolve(undefined);
       } else if (nextStep.signInStep === 'CONFIRM_SIGN_IN_WITH_NEW_PASSWORD_REQUIRED') {
         // Set state to confirm with password
         setConfirmWithPassword(true);
+        // Return no error
         return Promise.resolve(undefined);
+      } else {
+        // Log error
+        console.error('Sign-in error:', nextStep);
+        // Return error
+        return Promise.resolve({
+          message: 'An unknown error occurred',
+        });
       }
     } catch (error: any) {
       console.error('Sign-in error:', error);
@@ -55,16 +79,23 @@ export default function AuthPage() {
       });
       session && session.reloadSession();
       // Switch for next step
-      console.log(isSignedIn, nextStep)
-      if (nextStep.signInStep === 'DONE') {
+      if (isSignedIn) {
         console.info('Successfully signed in.')
         return Promise.resolve(undefined);
+      } else {
+        // Log error
+        console.error('Sign-in error:', nextStep);
+        // Return error
+        return Promise.resolve({
+          message: 'An unknown error occurred',
+        });
       }
     } catch (error: any) {
+      // Log error
       console.error('Sign-in error:', error);
+      // Return error
       return Promise.resolve({
-        message: (error.message as string) || 'An unknown error occurred',
-        type: (error.name as string) || 'authentication',
+        message: (error.message as string) || 'An unknown error occurred'
       });
     }
   }, [session]);
