@@ -49,6 +49,6 @@ export const branding = {
   >
     🥕
   </Box>,
-  title: 'Carrot UI',
+  title: 'Carrot Auth',
   homeUrl: '/',
 };
