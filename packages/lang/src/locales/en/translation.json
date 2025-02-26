@@ -14,7 +14,10 @@
       "field_label_name": "Name",
       "field_placeholder_name": "John Doe",
       "field_label_password": "Password",
-      "field_label_password_confirm": "Confirm Password"
+      "field_label_password_confirm": "Confirm Password",
+      "error_page_title": "Ooooops… 🥕",
+      "error_page_404_text": "404 - Page not found!",
+      "error_page_back_link_text": "get back home"
     },
     "errors": {
       "passwords_not_equal": "Passwords must be equal",

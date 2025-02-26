@@ -1,9 +1,13 @@
 import React from 'react';
 import { alpha, Box, Container, Typography, useTheme } from '@mui/material';
 import { NavLink } from 'react-router';
+import {useTranslation} from "react-i18next";
 
 export default function ErrorPage() {
+
   const theme = useTheme();
+  const { t } = useTranslation();
+
   return (
     <Box
       sx={{
@@ -29,13 +33,13 @@ export default function ErrorPage() {
           }}
         >
           <Typography variant='h4' gutterBottom>
-            Ooooops&hellip; 🥕
+            { t('auth.labels.error_page_title') }
           </Typography>
           <Typography variant='body1' align='center' sx={{ mb: 4 }}>
-            404 - Page not found!
+            { t('auth.labels.error_page_404_text') }
           </Typography>
           <NavLink to='/'>
-            get back home
+            { t('auth.labels.error_page_back_link_text') }
           </NavLink>
         </Box>
       </Container>

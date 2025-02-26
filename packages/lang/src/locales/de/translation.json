@@ -14,7 +14,10 @@
       "field_label_name": "Name",
       "field_placeholder_name": "Max Mustermann",
       "field_label_password": "Passwort",
-      "field_label_password_confirm": "Passwort bestätigen"
+      "field_label_password_confirm": "Passwort bestätigen",
+      "error_page_title": "Uuuuups… 🥕",
+      "error_page_404_text": "404 - Seite nicht gefunden!",
+      "error_page_back_link_text": "zurück zur Startseite"
     },
     "errors": {
       "passwords_not_equal": "Passwörter müssen übereinstimmen",
