@@ -1,4 +1,4 @@
-import {Session} from "@toolpad/core";
+import {Session} from '@toolpad/core';
 
 export type UserType = {
   id: string

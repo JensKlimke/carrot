@@ -1,4 +1,27 @@
 {
+  "auth": {
+    "signInLabel": "Einloggen",
+    "signOutLabel": "Ausloggen",
+    "labels": {
+      "app_title": "Carrot Authentifizierung",
+      "app_short": "Carrot Auth",
+      "app_icon": "🥕",
+      "title_set_pw_and_name": "Passwort und Name setzen",
+      "title_sign_in": "Einloggen",
+      "field_label_email": "E-Mail",
+      "field_placeholder_email": "deine@email.de",
+      "button_set_pw_and_name": "Aktualisieren",
+      "field_label_name": "Name",
+      "field_placeholder_name": "Max Mustermann",
+      "field_label_password": "Passwort",
+      "field_label_password_confirm": "Passwort bestätigen"
+    },
+    "errors": {
+      "passwords_not_equal": "Passwörter müssen übereinstimmen",
+      "password_required": "Passwort ist erforderlich",
+      "email_required": "E-Mail ist erforderlich"
+    }
+  },
   "Welcome to React": "Willkommen im Carrot UI",
   "copyright": {
     "short": "© JK",

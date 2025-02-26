@@ -2,11 +2,12 @@ import * as React from 'react';
 import { ReactRouterAppProvider } from '@toolpad/core/react-router';
 import { Outlet, useNavigate } from 'react-router';
 import {cognitoToUserType, UserSession, UserType} from './contexts/SessionContext';
-import {branding, theme} from "./themes";
-import {useCallback, useEffect, useMemo, useState} from "react";
+import {branding, theme} from './config/themes';
+import {useCallback, useEffect, useMemo, useState} from 'react';
 import {Amplify} from 'aws-amplify';
 import config from '@carrot/cdk/dist/cdk-outputs.json';
-import {fetchUserAttributes, signOut} from "@aws-amplify/auth";
+import {fetchUserAttributes, signOut} from '@aws-amplify/auth';
+import {useTranslation} from "react-i18next";
 
 // Load environment variables
 const userPoolId = process.env.NEXT_PUBLIC_USER_POOL_ID || config.AuthStack.UserPoolId;
@@ -31,6 +32,7 @@ function App() {
   const [user, setUser] = useState<UserType>();
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const cognitoSignOut = useCallback(async () => {
     // Set loading
@@ -68,12 +70,16 @@ function App() {
     reloadSession();
   }, [reloadSession]);
 
+  useEffect(() => {
+    document.title = t('auth.labels.app_title');
+  }, [t]);
+
   return (
     <ReactRouterAppProvider
       theme={theme}
       session={{user, loading, reloadSession} as UserSession}
       authentication={authenticationValue}
-      branding={branding}
+      branding={branding(t)}
     >
       <Outlet />
     </ReactRouterAppProvider>

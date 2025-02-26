@@ -1,15 +1,17 @@
-import React, {useCallback, useState} from "react";
-import {TextField} from "@mui/material";
-import AuthFormWrapper, {Error} from "./AuthFormWrapper";
+import React, {useCallback, useState} from 'react';
+import {TextField} from '@mui/material';
+import AuthFormWrapper, {Error} from './AuthFormWrapper';
+import {useTranslation} from "react-i18next";
 
 type SignInFormProps = {
   signIn : (formData : FormData) => Promise<Error | undefined>
 }
 
 const SignInForm = ({signIn} : SignInFormProps) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [errors, setErrors] = useState<{email : boolean, password : boolean}>({email: false, password: false});
+  const { t } = useTranslation();
 
   const checkBeforeSignIn = useCallback((data : FormData) => {
     // Get email and password error
@@ -29,33 +31,33 @@ const SignInForm = ({signIn} : SignInFormProps) => {
 
   return (
     <AuthFormWrapper
-      title="Sign In"
+      title={t('auth.labels.title_sign_in')}
       callback={checkBeforeSignIn}
     >
       <TextField
         fullWidth
-        name="email"
-        label="Email"
-        variant="outlined"
-        margin="normal"
+        name='email'
+        label={t('auth.labels.field_label_email')}
+        variant='outlined'
+        margin='normal'
         value={email}
         autoFocus={true}
-        placeholder={'your@email.com'}
+        placeholder={t('auth.labels.field_placeholder_email')}
         onChange={(e) => setEmail(e.target.value)}
         error={errors.email}
-        helperText={errors.email ? "Email is required" : ""}
+        helperText={errors.email ? t('auth.errors.email_required') : ''}
       />
       <TextField
         fullWidth
-        name="password"
-        label="Password"
-        type="password"
-        variant="outlined"
-        margin="normal"
+        name='password'
+        label={t('auth.labels.field_label_password')}
+        type='password'
+        variant='outlined'
+        margin='normal'
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         error={errors.password}
-        helperText={errors.password ? "Password is required" : ""}
+        helperText={errors.password ? t('auth.errors.password_required') : ''}
       />
     </AuthFormWrapper>
   );

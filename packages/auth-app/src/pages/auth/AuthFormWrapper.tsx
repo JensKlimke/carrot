@@ -1,6 +1,7 @@
-import React from "react";
-import {Alert, AlertTitle, alpha, Box, Button, Container, Typography, useTheme} from "@mui/material";
-import {branding} from "../../themes";
+import React from 'react';
+import {Alert, AlertTitle, alpha, Box, Button, Container, Typography, useTheme} from '@mui/material';
+import {useTranslation} from "react-i18next";
+import {branding} from "../../config/themes";
 
 export interface Error {
   type ?: string
@@ -19,6 +20,7 @@ function AuthFormWrapper(props : AuthWrapperProps) {
   const [loading, setLoading] = React.useState(false);
   const [error, setError] = React.useState<Error | undefined>(undefined);
   const theme = useTheme();
+  const { t } = useTranslation();
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     // Set loading
@@ -34,7 +36,7 @@ function AuthFormWrapper(props : AuthWrapperProps) {
   }
 
   return (
-    <Container maxWidth={"xs"}>
+    <Container maxWidth={'xs'}>
       <Box
         sx={{
           minHeight: '100vh',
@@ -58,11 +60,11 @@ function AuthFormWrapper(props : AuthWrapperProps) {
             boxShadow: theme.shadows[4],
           }}
         >
-          {branding?.logo}
+          {branding(t)?.logo}
           <Typography
-            variant="h5"
-            component="h1"
-            color="textPrimary"
+            variant='h5'
+            component='h1'
+            color='textPrimary'
             sx={{
               my: theme.spacing(1),
               textAlign: 'center',
@@ -75,7 +77,7 @@ function AuthFormWrapper(props : AuthWrapperProps) {
             error && (
               <Box sx={{ width: '100%'}}>
                 <Alert
-                  severity="error"
+                  severity='error'
                 >
                   { error.type && <AlertTitle>{error.type}</AlertTitle> }
                   { error.message }
@@ -83,12 +85,12 @@ function AuthFormWrapper(props : AuthWrapperProps) {
               </Box>
             )
           }
-          <Box component="form" onSubmit={handleSubmit} sx={{ width: "100%" }}>
+          <Box component='form' onSubmit={handleSubmit} sx={{ width: '100%' }}>
             { props.children }
             <Button
-              type="submit"
+              type='submit'
               fullWidth
-              variant="contained"
+              variant='contained'
               loading={loading}
               sx={{ mt: 2 }}
             >

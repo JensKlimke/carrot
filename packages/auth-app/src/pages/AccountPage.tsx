@@ -1,11 +1,20 @@
-import React from "react";
-import {Account} from "@toolpad/core";
-import Box from "@mui/material/Box";
+import React from 'react';
+import {Account} from '@toolpad/core';
+import Box from '@mui/material/Box';
+import {withTranslation} from 'react-i18next';
+import {TFunction} from 'i18next';
 
-export default function AccountPage() {
+function AccountPage({t} : {t : TFunction}) {
   return (
     <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-      <Account />
+      <Account
+        localeText={{
+          signInLabel : t('auth.signInLabel'),
+          signOutLabel : t('auth.signOutLabel'),
+        }}
+      />
     </Box>
   )
 }
+
+export default withTranslation()(AccountPage);

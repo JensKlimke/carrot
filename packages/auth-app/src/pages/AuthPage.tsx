@@ -1,13 +1,12 @@
-import * as React from 'react';
 import {signIn, confirmSignIn, fetchAuthSession} from '@aws-amplify/auth';
-import {useCallback, useEffect, useState} from "react";
-import {useSession} from "@toolpad/core";
-import AccountPage from "./AccountPage";
-import {UserSession} from "../contexts/SessionContext";
-import {LinearProgress} from "@mui/material";
-import SignInForm from "./auth/SignInForm";
-import ConfirmWithPasswordForm from "./auth/ConfirmWithPasswordForm";
-import {Error} from "./auth/AuthFormWrapper";
+import {useCallback, useEffect, useState} from 'react';
+import {useSession} from '@toolpad/core';
+import AccountPage from './AccountPage';
+import {UserSession} from '../contexts/SessionContext';
+import {LinearProgress} from '@mui/material';
+import SignInForm from './auth/SignInForm';
+import ConfirmWithPasswordForm from './auth/ConfirmWithPasswordForm';
+import {Error} from './auth/AuthFormWrapper';
 
 
 export default function AuthPage() {

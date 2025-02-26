@@ -1,4 +1,27 @@
 {
+  "auth": {
+    "signInLabel": "Sign in",
+    "signOutLabel": "Sign out",
+    "labels": {
+      "app_title": "Carrot Authentication",
+      "app_short": "Carrot Auth",
+      "app_icon": "🥕",
+      "title_set_pw_and_name": "Set Password and Name",
+      "title_sign_in": "Sign In",
+      "field_label_email": "Email",
+      "field_placeholder_email": "your@email.com",
+      "button_set_pw_and_name": "Update",
+      "field_label_name": "Name",
+      "field_placeholder_name": "John Doe",
+      "field_label_password": "Password",
+      "field_label_password_confirm": "Confirm Password"
+    },
+    "errors": {
+      "passwords_not_equal": "Passwords must be equal",
+      "password_required": "Password is required",
+      "email_required": "Email is required"
+    }
+  },
   "Welcome to React": "Welcome to Carrot UI",
   "copyright": {
     "short": "© JK",
