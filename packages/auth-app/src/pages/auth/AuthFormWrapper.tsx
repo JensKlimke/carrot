@@ -1,5 +1,5 @@
 import React from 'react';
-import {Alert, AlertTitle, alpha, Box, Button, Container, Typography, useTheme} from '@mui/material';
+import {Alert, AlertTitle, Box, Button, Typography, useTheme} from '@mui/material';
 import {useTranslation} from "react-i18next";
 import {branding} from "../../config/themes";
 import Boxed from "../Boxed";
