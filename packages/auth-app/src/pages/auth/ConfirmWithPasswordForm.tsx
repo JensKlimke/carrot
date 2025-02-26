@@ -51,7 +51,7 @@ const SignInForm = ({callback} : SignInFormProps) => {
       <TextField
         fullWidth
         name='password'
-        label={t('auth.labels.field_label_password')}
+        label={t('auth.labels.field_label_password_change')}
         type='password'
         variant='outlined'
         margin='normal'
