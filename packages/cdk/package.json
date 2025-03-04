@@ -6,7 +6,6 @@
   "author": "Jens Klimke",
   "license": "MIT",
   "scripts": {
-    "build": "tsc",
     "deploy": "cdk deploy --outputs-file dist/cdk-outputs.json",
     "destroy": "cdk destroy --force",
     "synth": "cdk synth"

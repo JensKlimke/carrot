@@ -4,5 +4,10 @@
   "version": "0.1.0",
   "author": "Jens Klimke",
   "license": "MIT",
-  "description": "The language files."
+  "description": "The language files.",
+  "dependencies": {
+    "i18next": "23.6.0",
+    "i18next-browser-languagedetector": "^8.0.4",
+    "react-i18next": "^15.4.1"
+  }
 }
