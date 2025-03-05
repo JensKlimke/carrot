@@ -3,12 +3,16 @@ import {TextField} from '@mui/material';
 import AuthFormWrapper from './AuthFormWrapper';
 import {useTranslation} from "react-i18next";
 import {FormError} from "../../config/FormError.ts";
+import {useSession} from "@toolpad/core";
+import {UserSession} from "../../contexts/SessionContext.ts";
 
 type SignInFormProps = {
   signIn : (formData : FormData) => Promise<FormError | undefined>
 }
 
 const SignInForm = ({signIn} : SignInFormProps) => {
+
+  const session = useSession<UserSession>();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState<{email : boolean, password : boolean}>({email: false, password: false});
@@ -34,6 +38,7 @@ const SignInForm = ({signIn} : SignInFormProps) => {
     <AuthFormWrapper
       title={t('auth.labels.title_sign_in')}
       callback={checkBeforeSignIn}
+      footerText={ session && session.redirectTo ? <>You will be redirected to <i>{session.redirectTo}</i></> : undefined }
     >
       <TextField
         fullWidth

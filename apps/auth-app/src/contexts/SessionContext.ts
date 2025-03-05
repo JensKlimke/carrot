@@ -24,5 +24,6 @@ export const cognitoToUserType = (user : CognitoUser) : UserType => ({
 export interface UserSession extends Session {
   user ?: UserType;
   loading : boolean;
+  redirectTo : string | undefined;
   reloadSession: () => void
 }

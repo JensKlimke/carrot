@@ -1,5 +1,5 @@
-import {signIn, confirmSignIn, fetchAuthSession} from '@aws-amplify/auth';
-import {useCallback, useEffect, useState} from 'react';
+import {signIn, confirmSignIn} from '@aws-amplify/auth';
+import {useCallback, useState} from 'react';
 import {useSession} from '@toolpad/core';
 import AccountPage from './AccountPage';
 import {UserSession} from '../contexts/SessionContext';
@@ -13,24 +13,6 @@ export default function AuthPage() {
 
   const session = useSession<UserSession>()
   const [confirmWithPassword, setConfirmWithPassword] = useState(false);
-
-  useEffect(() => {
-    if (session && session.user) {
-      // Reset confirm with password state
-      setConfirmWithPassword(false);
-      // Check if redirect url is given
-      const redirect = new URLSearchParams(window.location.search).get('redirect');
-      if (redirect) {
-        fetchAuthSession().then(res=>{
-          // Build url
-          const url = new URL(redirect);
-          url.hash = `#access_token=${res.tokens?.accessToken}`;
-          // Redirect to origin
-          window.location.href = url.toString();
-        })
-      }
-    }
-  }, [session])
 
   const signInCallback = useCallback<(formData: FormData) => Promise<FormError | undefined>>(async (formData: FormData) => {
     // Get credentials

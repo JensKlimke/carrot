@@ -4,7 +4,7 @@ import {cognitoToUserType, UserSession, UserType} from './contexts/SessionContex
 import {useCallback, useEffect, useMemo, useState} from 'react';
 import {Amplify} from 'aws-amplify';
 import config from '@carrot/cdk/dist/cdk-outputs.json';
-import {fetchUserAttributes, signOut} from '@aws-amplify/auth';
+import {fetchAuthSession, fetchUserAttributes, signOut} from '@aws-amplify/auth';
 import {useTranslation} from "react-i18next";
 import {branding} from "./config/branding.tsx";
 import {theme} from "@carrot/theme/src/themes.ts";
@@ -31,6 +31,7 @@ function App() {
 
   const [user, setUser] = useState<UserType>();
   const [loading, setLoading] = useState(true);
+  const [redirectTo, setRedirectTo] = useState<string | undefined>();
   const navigate = useNavigate();
   const { t } = useTranslation();
 
@@ -44,10 +45,7 @@ function App() {
       .finally(() => setLoading(false));
   }, [])
 
-  /**
-   * Create the authentication value
-   * - Create sign in and sign out functions
-   */
+
   const authenticationValue = useMemo(
     () => ({
       signIn: (() => navigate('/signin')),
@@ -71,13 +69,44 @@ function App() {
   }, [reloadSession]);
 
   useEffect(() => {
+    // Check redirect and set as state
+    const url = new URL(location.href);
+    if (url.searchParams.has('redirect'))
+      setRedirectTo(url.searchParams.get('redirect') || undefined);
+  }, []);
+
+  useEffect(() => {
+    // Redirect user if logged in and redirect is set
+    if (!user || !redirectTo)
+      return
+    // Get token
+    fetchAuthSession()
+      .then(session => {
+        // Catch error
+        if (!session.tokens || !session.tokens.idToken)
+          throw new Error('No token provided.');
+        // Generate url
+        const url = new URL(redirectTo);
+        url.hash = `#access_token=${session.tokens.accessToken.toString()}&id_token=${session.tokens.idToken.toString()}`;
+        // redirect
+        window.location.href = url.toString();
+      })
+      .catch(e => console.error(e));
+  }, [navigate, redirectTo, user])
+
+  useEffect(() => {
     document.title = t('auth.labels.app_title');
   }, [t]);
 
   return (
     <ReactRouterAppProvider
       theme={theme}
-      session={{user, loading, reloadSession} as UserSession}
+      session={{
+        user,
+        loading,
+        redirectTo,
+        reloadSession
+    } as UserSession}
       authentication={authenticationValue}
       branding={branding(t)}
     >

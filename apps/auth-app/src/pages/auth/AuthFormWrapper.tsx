@@ -10,6 +10,7 @@ interface AuthWrapperProps {
   title : string,
   buttonText ?: string,
   callback : (data : FormData) => Promise<FormError | undefined>,
+  footerText ?: string | ReactNode
 }
 
 function AuthFormWrapper(props : AuthWrapperProps) {
@@ -71,6 +72,18 @@ function AuthFormWrapper(props : AuthWrapperProps) {
           { props.buttonText || props.title }
         </Button>
       </Box>
+      { props.footerText && (
+        <Typography
+          fontSize='small'
+          sx={{
+            mt: theme.spacing(2),
+            textAlign: 'center',
+            color: 'text.secondary'
+          }}
+        >
+          { props.footerText }
+        </Typography>
+      ) }
     </Boxed>
   )
 
