@@ -1,4 +1,11 @@
 {
+  "general": {
+    "error_page": {
+      "title": "Ooooops… 🥕",
+      "404_text": "404 - Page not found!",
+      "back_link_text": "get back home"
+    }
+  },
   "auth": {
     "signInLabel": "Sign in",
     "signOutLabel": "Sign out",
@@ -15,15 +22,20 @@
       "field_placeholder_name": "John Doe",
       "field_label_password": "Password",
       "field_label_password_change": "Password",
-      "field_label_password_confirm": "Confirm Password",
-      "error_page_title": "Ooooops… 🥕",
-      "error_page_404_text": "404 - Page not found!",
-      "error_page_back_link_text": "get back home"
+      "field_label_password_confirm": "Confirm Password"
     },
     "errors": {
       "passwords_not_equal": "Passwords must be equal",
       "password_required": "Password is required",
       "email_required": "Email is required"
+    }
+  },
+  "finapp": {
+    "labels": {
+      "app_title": "Finance App",
+      "app_short": "FinApp",
+      "app_icon": "🥕",
+      "title_sign_in": "Sign In"
     }
   },
   "Welcome to React": "Welcome to Carrot UI",

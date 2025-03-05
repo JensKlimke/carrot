@@ -1,4 +1,11 @@
 {
+  "general": {
+    "error_page": {
+      "title": "Uuuuups… 🥕",
+      "404_text": "404 - Seite nicht gefunden!",
+      "back_link_text": "zurück zur Startseite"
+    }
+  },
   "auth": {
     "signInLabel": "Einloggen",
     "signOutLabel": "Ausloggen",
@@ -15,10 +22,7 @@
       "field_placeholder_name": "Max Mustermann",
       "field_label_password": "Passwort",
       "field_label_password_change": "Passwort",
-      "field_label_password_confirm": "Passwort bestätigen",
-      "error_page_title": "Uuuuups… $t(auth.labels.app_icon)",
-      "error_page_404_text": "404 - Seite nicht gefunden!",
-      "error_page_back_link_text": "zurück zur Startseite"
+      "field_label_password_confirm": "Passwort bestätigen"
     },
     "errors": {
       "passwords_not_equal": "Passwörter müssen übereinstimmen",

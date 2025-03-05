@@ -7,9 +7,9 @@ export default function AuthErrorPage() {
 
   return (
     <ErrorPage
-      title={t('auth.labels.error_page_title')}
-      text={t('auth.labels.error_page_404_text')}
-      backLinkText={t('auth.labels.error_page_back_link_text')}
+      title={t('general.error_page.title')}
+      text={t('general.error_page.404_text')}
+      backLinkText={t('general.error_page.back_link_text')}
     />
   );
 };
