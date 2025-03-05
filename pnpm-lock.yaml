@@ -62,9 +62,6 @@ importers:
       '@carrot/theme':
         specifier: workspace:*
         version: link:../../packages/theme
-      '@carrot/ui':
-        specifier: workspace:*
-        version: link:../../packages/ui
       '@emotion/react':
         specifier: ^11.14.0
         version: 11.14.0(@types/react@19.0.10)(react@19.0.0)
@@ -80,6 +77,46 @@ importers:
       aws-amplify:
         specifier: ^6.13.0
         version: 6.13.2
+      i18next:
+        specifier: 23.6.0
+        version: 23.6.0
+      i18next-browser-languagedetector:
+        specifier: ^8.0.4
+        version: 8.0.4
+      react-dom:
+        specifier: ^19.0.0
+        version: 19.0.0(react@19.0.0)
+      react-i18next:
+        specifier: ^15.4.1
+        version: 15.4.1(i18next@23.6.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      react-router:
+        specifier: ^7.2.0
+        version: 7.2.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+    devDependencies:
+      '@types/react-dom':
+        specifier: ^19.0.4
+        version: 19.0.4(@types/react@19.0.10)
+
+  apps/fin-app:
+    dependencies:
+      '@carrot/lang':
+        specifier: workspace:*
+        version: link:../../packages/lang
+      '@carrot/theme':
+        specifier: workspace:*
+        version: link:../../packages/theme
+      '@emotion/react':
+        specifier: ^11.14.0
+        version: 11.14.0(@types/react@19.0.10)(react@19.0.0)
+      '@emotion/styled':
+        specifier: ^11.14.0
+        version: 11.14.0(@emotion/react@11.14.0(@types/react@19.0.10)(react@19.0.0))(@types/react@19.0.10)(react@19.0.0)
+      '@mui/material':
+        specifier: ^6.4.5
+        version: 6.4.6(@emotion/react@11.14.0(@types/react@19.0.10)(react@19.0.0))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@19.0.10)(react@19.0.0))(@types/react@19.0.10)(react@19.0.0))(@types/react@19.0.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@toolpad/core':
+        specifier: ^0.12.0
+        version: 0.12.1(@mui/icons-material@6.4.6(@mui/material@6.4.6(@emotion/react@11.14.0(@types/react@19.0.10)(react@19.0.0))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@19.0.10)(react@19.0.0))(@types/react@19.0.10)(react@19.0.0))(@types/react@19.0.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@types/react@19.0.10)(react@19.0.0))(@mui/material@6.4.6(@emotion/react@11.14.0(@types/react@19.0.10)(react@19.0.0))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@19.0.10)(react@19.0.0))(@types/react@19.0.10)(react@19.0.0))(@types/react@19.0.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@types/react@19.0.10)(react-router@7.2.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react@19.0.0)(vite@6.2.0(@types/node@22.13.8)(jiti@1.21.7)(terser@5.39.0)(yaml@2.7.0))
       i18next:
         specifier: 23.6.0
         version: 23.6.0
@@ -139,22 +176,6 @@ importers:
       react-router:
         specifier: ^7.2.0
         version: 7.2.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-
-  packages/ui:
-    dependencies:
-      '@mui/material':
-        specifier: ^6.4.5
-        version: 6.4.6(@emotion/react@11.14.0(@types/react@19.0.10)(react@19.0.0))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@19.0.10)(react@19.0.0))(@types/react@19.0.10)(react@19.0.0))(@types/react@19.0.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      react:
-        specifier: ^19.0.0
-        version: 19.0.0
-    devDependencies:
-      '@types/node':
-        specifier: ^22.13.8
-        version: 22.13.8
-      '@types/react':
-        specifier: ^19.0.10
-        version: 19.0.10
 
 packages:
 
