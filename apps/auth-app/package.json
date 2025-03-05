@@ -13,7 +13,6 @@
     "@aws-amplify/auth": "^6.11.0",
     "@carrot/cdk": "workspace:*",
     "@carrot/lang": "workspace:*",
-    "@carrot/ui": "workspace:*",
     "@carrot/theme": "workspace:*",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
