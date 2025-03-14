@@ -1,12 +1,16 @@
-import {Alert, AlertTitle, Box, Button, Typography, useTheme} from '@mui/material';
-import {useTranslation} from "react-i18next";
+import React from 'react';
+import {Alert, AlertTitle, Box, Button, Typography} from '@mui/material';
 import {FormEvent, ReactNode, useState} from "react";
-import {FormError} from "../../config/FormError.ts";
-import {branding} from "../../config/branding.tsx";
-import Boxed from "@carrot/theme/src/Boxed.tsx";
+import Boxed from "./Boxed";
+
+export interface FormError {
+  type ?: string
+  message : string
+}
 
 interface AuthWrapperProps {
   children : ReactNode,
+  logo : ReactNode | string,
   title : string,
   buttonText ?: string,
   callback : (data : FormData) => Promise<FormError | undefined>,
@@ -17,8 +21,6 @@ function AuthFormWrapper(props : AuthWrapperProps) {
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<FormError | undefined>(undefined);
-  const theme = useTheme();
-  const { t } = useTranslation();
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     // Set loading
@@ -35,13 +37,12 @@ function AuthFormWrapper(props : AuthWrapperProps) {
 
   return (
     <Boxed>
-      {branding(t)?.logo}
+      { props.logo }
       <Typography
         variant='h5'
         component='h1'
         color='textPrimary'
         sx={{
-          my: theme.spacing(1),
           textAlign: 'center',
           fontWeight: 600,
         }}
@@ -76,7 +77,6 @@ function AuthFormWrapper(props : AuthWrapperProps) {
         <Typography
           fontSize='small'
           sx={{
-            mt: theme.spacing(2),
             textAlign: 'center',
             color: 'text.secondary'
           }}

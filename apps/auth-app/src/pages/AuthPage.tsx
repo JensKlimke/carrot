@@ -6,7 +6,7 @@ import {UserSession} from '../contexts/SessionContext';
 import {LinearProgress} from '@mui/material';
 import SignInForm from './auth/SignInForm';
 import ConfirmWithPasswordForm from './auth/ConfirmWithPasswordForm';
-import {FormError} from "../config/FormError.ts";
+import {FormError} from "@carrot/theme/src/shared/AuthFormWrapper.tsx";
 
 
 export default function AuthPage() {

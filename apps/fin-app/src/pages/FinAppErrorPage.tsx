@@ -1,6 +1,5 @@
 import {useTranslation} from "react-i18next";
-import ErrorPage from "@carrot/theme/src/ErrorPage.tsx";
-
+import ErrorPage from "@carrot/theme/src/shared/ErrorPage.tsx";
 export default function FinAppErrorPage() {
 
   const { t } = useTranslation();
@@ -13,3 +12,4 @@ export default function FinAppErrorPage() {
     />
   );
 };
+

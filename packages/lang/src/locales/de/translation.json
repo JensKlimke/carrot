@@ -11,7 +11,7 @@
     "signOutLabel": "Ausloggen",
     "labels": {
       "app_title": "Carrot Authentifizierung",
-      "app_short": "Carrot Auth",
+      "app_title_short": "Carrot Auth",
       "app_icon": "🥕",
       "title_set_pw_and_name": "Passwort und Name setzen",
       "title_sign_in": "Einloggen",

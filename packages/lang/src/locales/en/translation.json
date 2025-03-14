@@ -11,7 +11,7 @@
     "signOutLabel": "Sign out",
     "labels": {
       "app_title": "Carrot Authentication",
-      "app_short": "Carrot Auth",
+      "app_title_short": "Carrot Auth",
       "app_icon": "🥕",
       "title_set_pw_and_name": "Set Password and Name",
       "title_sign_in": "Sign In",
@@ -33,7 +33,7 @@
   "finapp": {
     "labels": {
       "app_title": "Finance App",
-      "app_short": "FinApp",
+      "app_title_short": "FinApp",
       "app_icon": "🥕",
       "title_sign_in": "Sign In"
     }
@@ -72,7 +72,8 @@
   },
   "nav": {
     "home": "Dashboard",
-    "contracts": "Contracts"
+    "contracts": "Contracts",
+    "main_items": "Pages"
   },
   "format": {
     "eur": "{{value, currency, EUR}}",

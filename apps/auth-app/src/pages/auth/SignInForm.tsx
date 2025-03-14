@@ -1,10 +1,10 @@
 import {useCallback, useState} from 'react';
 import {TextField} from '@mui/material';
-import AuthFormWrapper from './AuthFormWrapper';
 import {useTranslation} from "react-i18next";
-import {FormError} from "../../config/FormError.ts";
 import {useSession} from "@toolpad/core";
 import {UserSession} from "../../contexts/SessionContext.ts";
+import {branding} from "../../config/branding.tsx";
+import AuthFormWrapper, {FormError} from "@carrot/theme/src/shared/AuthFormWrapper.tsx";
 
 type SignInFormProps = {
   signIn : (formData : FormData) => Promise<FormError | undefined>
@@ -36,6 +36,7 @@ const SignInForm = ({signIn} : SignInFormProps) => {
 
   return (
     <AuthFormWrapper
+      logo={branding(t).logo}
       title={t('auth.labels.title_sign_in')}
       callback={checkBeforeSignIn}
       footerText={ session && session.redirectTo ? <>You will be redirected to <i>{session.redirectTo}</i></> : undefined }

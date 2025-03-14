@@ -1,8 +1,8 @@
 import {useEffect, useState} from 'react';
 import {TextField} from '@mui/material';
-import AuthFormWrapper from './AuthFormWrapper';
 import {useTranslation} from 'react-i18next';
-import {FormError} from "../../config/FormError.ts";
+import {branding} from "../../config/branding.tsx";
+import AuthFormWrapper, {FormError} from "@carrot/theme/src/shared/AuthFormWrapper.tsx";
 
 type SignInFormProps = {
   callback : (formData : FormData) => Promise<FormError | undefined>
@@ -32,6 +32,7 @@ const SignInForm = ({callback} : SignInFormProps) => {
 
   return (
     <AuthFormWrapper
+      logo={branding(t).logo}
       title={t('auth.labels.title_set_pw_and_name')}
       buttonText={t('auth.labels.button_set_pw_and_name')}
       callback={callback}
